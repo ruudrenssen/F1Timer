@@ -33,24 +33,18 @@ const hour = 60 * min;
 const day = 24 * hour;
 const units = [day, hour, min, sec, ms];
 
-const countdown = function (value = 0) {
-	let i =  0;
-	let t = [];
-	let u = [...units]
-
-	do {
-		// distribute value over days, hours, minutes and seconds
-		if (value >= u[0]) {
-			value -= u[0];
-			i++;
-		} else {
-			u.shift();
-			t.push(i);
-			i = 0;
+function countdown(value = 0) {
+	return units.map((unit) => {
+		if (value < unit) {
+			return 0;
 		}
-	} while (value);
 
-	return t;
+		const count = Math.floor(value / unit);
+
+		value -= count * unit;
+
+		return count;
+	});
 }
 
 setInterval(() => {
