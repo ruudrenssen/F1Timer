@@ -32,8 +32,9 @@ const min = 60 * sec;
 const hour = 60 * min;
 const day = 24 * hour;
 const units = [day, hour, min, sec, ms];
+const decimals = [1, 2, 2, 2, 3]
 
-function countdown(value = 0) {
+const countdown = function(value = 0) {
 	return units.map((unit) => {
 		if (value < unit) {
 			return 0;
@@ -47,12 +48,15 @@ function countdown(value = 0) {
 	});
 }
 
+const placeholders = document.querySelectorAll('[data-module="time"]');
+
 setInterval(() => {
 	data.forEach(value => {
 		value.sessions.forEach(session => {
-			const time = new Date(session.start - Date.now()); // time to session in ms
-			console.log(countdown(time));
+			const time = countdown(new Date(session.start - Date.now())); // time to session in ms
+			placeholders.forEach((placeholder, i) => {
+				placeholder.textContent = time[i].toString().padStart(decimals[i], '0');
+			});
 		});
 	});
-}, 1000);
-
+}, 24);

@@ -2,4 +2,37 @@
 
 * {
 	font-family: 'Bebas Neue', sans-serif;
+	font-weight: normal;
+	line-height: 1;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	text-align: center;
+	background-color: #ffff87;
+}
+
+article {
+	padding: .5em;
+	color: #fff;
+	background-color: #111;
+}
+
+.countdown {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	gap: .5em;
+}
+
+.countdown-item {
+	display: flex;
+	flex-flow: column nowrap;
+	font-size: 4em;
+	text-align: center;
+}
+
+.countdown-smallprint {
+	font-size: .25em;
 }
