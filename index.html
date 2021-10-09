@@ -8,39 +8,46 @@
 	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
-	<main>
-		<h1>Title</h1>
-		<section>
-			<article>
-				<h2>GP Title</h2>
-					<div>
-					<h3>Session title</h3>
-					<div class="countdown">
-						<div class="countdown-item">
-							<div data-module="time">0</div>
-							<div class="countdown-smallprint">days</div>
-						</div>
-						<div class="countdown-item">
-							<div data-module="time">00</div>
-							<div class="countdown-smallprint">hours</div>
-						</div>
-						<div class="countdown-item">
-							<div data-module="time">00</div>
-							<div class="countdown-smallprint">minutes</div>
-						</div>
-						<div class="countdown-item">
-							<div data-module="time">00</div>
-							<div class="countdown-smallprint">seconds</div>
-						</div>
-						<div class="countdown-item">
-							<div data-module="time">000</div>
-							<div class="countdown-smallprint">miliseconds</div>
-						</div>
-					</div>
-				</div>
-			</article>
-		</section>
+	<main data-module="gp-calendar" class="calendar">
 	</main>
+	<section data-module="gp-item" class="gp">
+		<header>
+			<div>Dates</div>
+			<h1>GP Title</h1>
+			<h2>GP Sub title</h2>
+		</header>
+		<div data-module="gp-sessions" class="sessions"></div>
+	</section>
+	<article data-module="gp-session" class="session">
+		<h3>Session</h3>
+		<div class="timer">
+			<div class="timer-item">
+				<div data-module="gp-time">0</div>
+				<div class="timer-smallprint">days</div>
+			</div>
+			:
+			<div class="timer-item">
+				<div data-module="gp-time">00</div>
+				<div class="timer-smallprint">hours</div>
+			</div>
+			:
+			<div class="timer-item">
+				<div data-module="gp-time">00</div>
+				<div class="timer-smallprint">minutes</div>
+			</div>
+			:
+			<div class="timer-item">
+				<div data-module="gp-time">00</div>
+				<div class="timer-smallprint">seconds</div>
+			</div>
+			.
+			<div class="timer-item">
+				<div data-module="gp-time">000</div>
+				<div class="timer-smallprint">miliseconds</div>
+			</div>
+		</div>
+	</article>
+	<div class="chainbear"></div>
 	<script src='main.js'></script>
 </body>
 </html>

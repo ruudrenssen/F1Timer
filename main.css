@@ -25,6 +25,10 @@ body {
 	text-align: center;
 	font-size: 1.25rem;
 	background-color: var(--yellow);
+	background-image: url(./logo.svg);
+	background-position: center center;
+	background-size: contain;
+	background-attachment: fixed;
 }
 
 section {
@@ -50,9 +54,6 @@ article {
 
 article h3 {
 	display: inline-block;
-	background-color: var(--yellow);
-	padding: .5em;
-	margin: -.5em;
 }
 
 .gp {
@@ -91,7 +92,8 @@ article h3 {
 	z-index: -1;
 	height: 3px;
 
-	background-color: var(--purple);
+	/* background-color: var(--purple); */
+	background: linear-gradient(90deg, rgba(187,0,181,1) 0%, rgba(187,0,181,0) 40%, rgba(187,0,181,0) 60%, rgba(187,0,181,1) 100%);
 }
 
 .timer {
@@ -111,18 +113,4 @@ article h3 {
 
 .timer-smallprint {
 	font-size: .25em;
-}
-
-.chainbear {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
-	background-image: url(./logo.svg);
-	background-size: 40rem;
-	background-position: center -5rem;
-	background-repeat: no-repeat;
-	opacity: .1;
 }
