@@ -26,9 +26,14 @@ body {
 	font-size: 1.25rem;
 	background-color: var(--yellow);
 	background-image: url(./logo.svg);
-	background-position: center center;
-	background-size: contain;
+	background-position: center -40%;
+	background-size: 62vw;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
+}
+
+main {
+	overflow: auto;
 }
 
 section {
@@ -80,7 +85,7 @@ article h3 {
 }
 
 .session:last-child {
-	/* font-size: 1.25rem; */
+	font-size: 1.5rem;
 }
 
 .session::before {
@@ -92,7 +97,6 @@ article h3 {
 	z-index: -1;
 	height: 3px;
 
-	/* background-color: var(--purple); */
 	background: linear-gradient(90deg, rgba(187,0,181,1) 0%, rgba(187,0,181,0) 40%, rgba(187,0,181,0) 60%, rgba(187,0,181,1) 100%);
 }
 
