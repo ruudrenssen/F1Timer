@@ -1,6 +1,6 @@
 const data = [
 	{
-		title: 'Turkish Grand Prix',
+		title: 'Turkey',
 		subtitle: 'Formula 1 Rolex Turkey Grand Prix 2021',
 		sessions: [
 			{
@@ -48,6 +48,32 @@ const data = [
 			{
 				name: 'Race',
 				start: new Date(1635102000000)
+			}
+		]
+	},
+	{
+		title: 'Mexico',
+		subtitle: 'Formula 1 Gran Premio La Ciudad De México 2021',
+		sessions: [
+			{
+				name: 'Practice 1',
+				start: new Date(1636133400000)
+			},
+			{
+				name: 'Practice 2',
+				start: new Date(1636146000000)
+			},
+			{
+				name: 'Practice 3',
+				start: new Date(1636218000000)
+			},
+			{
+				name: 'Qualifying',
+				start: new Date(1636228800000)
+			},
+			{
+				name: 'Race',
+				start: new Date(1636311600000)
 			}
 		]
 	}

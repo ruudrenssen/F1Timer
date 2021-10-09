@@ -26,7 +26,7 @@ body {
 	font-size: 1.25rem;
 	background-color: var(--yellow);
 	background-image: url(./logo.svg);
-	background-position: center -40%;
+	background-position: center 0;
 	background-size: 62vw;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -97,7 +97,7 @@ article h3 {
 	z-index: -1;
 	height: 3px;
 
-	background: linear-gradient(90deg, rgba(187,0,181,1) 0%, rgba(187,0,181,0) 40%, rgba(187,0,181,0) 60%, rgba(187,0,181,1) 100%);
+	background: linear-gradient(90deg, #bb00b5 0%, #bb00b500 40%, #bb00b500 60%, #bb00b5 100%);
 }
 
 .timer {
