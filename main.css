@@ -1,51 +1,128 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+:root {
+	--black: #050704;
+	--yellow: #fffe88;
+	--white: #fff;
+	--purple: #bb00b5;
+}
+
 * {
 	font-family: 'Bebas Neue', sans-serif;
 	font-weight: normal;
+	font-size: inherit;
 	line-height: 1;
 	padding: 0;
 	margin: 0;
 }
 
-body {
-	text-align: center;
-	background-color: #ffff87;
+html, body, main {
+	width: 100%;
+	height: 100%;
 }
 
-article {
-	padding: .5em;
-	color: #fff;
-	background-color: #111;
+body {
+	text-align: center;
+	font-size: 1.25rem;
+	background-color: var(--yellow);
+}
+
+section {
+	display: grid;
+	height: 100%;
+}
+
+h1, h2, h3 {
+	text-transform: uppercase;
 }
 
 h1 {
-	font-size: 4em;
+	font-size: 4.5rem;
 }
 
-h2 {
-	font-size: 2.5em;
+header {
+	padding: 2rem;
 }
 
-h3 {
-	font-size: 1em;
-}
-
-.countdown {
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	gap: 1em;
-	padding: .5em;
-}
-
-.countdown-item {
-	display: flex;
-	flex-flow: column nowrap;
-	font-size: 4em;
+article {
 	text-align: center;
 }
 
-.countdown-smallprint {
+article h3 {
+	display: inline-block;
+	background-color: var(--yellow);
+	padding: .5em;
+	margin: -.5em;
+}
+
+.gp {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	place-items: center;
+	align-items: center;
+	grid-template-rows: auto auto;
+}
+
+.sessions {
+	display: flex;
+	place-self: center;
+	align-self: center;
+	flex-flow: column nowrap;
+	gap: .5em;
+}
+
+.session {
+	position: relative;
+	padding: .5em;
+	font-size: 1.125rem;
+}
+
+.session:last-child {
+	/* font-size: 1.25rem; */
+}
+
+.session::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: .825em;
+	z-index: -1;
+	height: 3px;
+
+	background-color: var(--purple);
+}
+
+.timer {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	gap: .125em;
+	padding: .125em;
+	font-size: 2.75em;
+}
+
+.timer-item {
+	display: flex;
+	flex-flow: column nowrap;
+	text-align: center;
+}
+
+.timer-smallprint {
 	font-size: .25em;
+}
+
+.chainbear {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	background-image: url(./logo.svg);
+	background-size: 40rem;
+	background-position: center -5rem;
+	background-repeat: no-repeat;
+	opacity: .1;
 }
