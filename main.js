@@ -124,6 +124,8 @@ const updateCountdown = function (el) {
 
 data.forEach(gp => {
 	const el = gpTemplate.cloneNode(true);
+
+	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
 	gp.sessions.forEach(session => {
 		const e = sessionTemplate.cloneNode(true);
 

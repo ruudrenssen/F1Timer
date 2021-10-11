@@ -34,11 +34,14 @@ body {
 
 main {
 	overflow: auto;
+	scroll-snap-type: y proximity;
+	scroll-behavior: smooth;
 }
 
 section {
 	display: grid;
 	height: 100%;
+	scroll-snap-align: center;
 }
 
 h1, h2, h3 {
@@ -88,7 +91,7 @@ article h3 {
 	font-size: 1.5rem;
 }
 
-.session::before {
+.session:last-child::before {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -97,7 +100,7 @@ article h3 {
 	z-index: -1;
 	height: 3px;
 
-	background: linear-gradient(90deg, #bb00b5 0%, #bb00b500 40%, #bb00b500 60%, #bb00b5 100%);
+	background: linear-gradient(90deg, var(--purple) 0%, #bb00b500 40%, #bb00b500 60%, var(--purple) 100%);
 }
 
 .timer {
