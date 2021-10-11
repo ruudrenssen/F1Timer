@@ -23,13 +23,13 @@ html, body, main {
 
 body {
 	text-align: center;
-	font-size: 1.25rem;
+	font-size: 1rem;
 	background-color: var(--yellow);
 	background-image: url(./logo.svg);
-	background-position: center 0;
-	background-size: 62vw;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	background-position: center -5vh;
 }
 
 main {
@@ -38,22 +38,12 @@ main {
 	scroll-behavior: smooth;
 }
 
-section {
-	display: grid;
-	height: 100%;
-	scroll-snap-align: center;
-}
-
 h1, h2, h3 {
 	text-transform: uppercase;
 }
 
 h1 {
-	font-size: 4.5rem;
-}
-
-header {
-	padding: 2rem;
+	font-size: 2.62rem;
 }
 
 article {
@@ -66,50 +56,28 @@ article h3 {
 
 .gp {
 	display: grid;
-	width: 100%;
 	height: 100%;
-	place-items: center;
 	align-items: center;
-	grid-template-rows: auto auto;
+	grid-template-rows: repeat(3, auto);
 }
 
 .sessions {
 	display: flex;
-	place-self: center;
-	align-self: center;
 	flex-flow: column nowrap;
-	gap: .5em;
+	gap: 1em;
+	font-size: 1em;
 }
 
-.session {
-	position: relative;
-	padding: .5em;
-	font-size: 1.125rem;
-}
-
-.session:last-child {
-	font-size: 1.5rem;
-}
-
-.session:last-child::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: .825em;
-	z-index: -1;
-	height: 3px;
-
-	background: linear-gradient(90deg, var(--purple) 0%, #bb00b500 40%, #bb00b500 60%, var(--purple) 100%);
+.race {
+	font-size: 1.62em;
 }
 
 .timer {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	gap: .125em;
-	padding: .125em;
-	font-size: 2.75em;
+	gap: .125rem;
+	font-size: 1.62em;
 }
 
 .timer-item {
@@ -119,5 +87,5 @@ article h3 {
 }
 
 .timer-smallprint {
-	font-size: .25em;
+	font-size: .375em;
 }

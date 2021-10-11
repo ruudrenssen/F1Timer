@@ -122,25 +122,41 @@ const updateCountdown = function (el) {
 	};
 }
 
-data.forEach(gp => {
-	const el = gpTemplate.cloneNode(true);
+const createTimerEl = function (session) {
+	const el = sessionTemplate.cloneNode(true);
 
-	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
-	gp.sessions.forEach(session => {
-		const e = sessionTemplate.cloneNode(true);
-
-		e.dataset.start = session.start;
-		e.querySelector('h3').textContent = session.name;
-		updateCountdown(e);
-		e.hidden = false;
-		el.querySelector('[data-module="gp-sessions"]').appendChild(e);
-	});
-
-	el.querySelector('h1').textContent = gp.title;
-	el.querySelector('h2').textContent = gp.subtitle;
+	el.dataset.start = session.start;
+	el.querySelector('h3').textContent = session.name;
+	updateCountdown(el);
 	el.hidden = false;
 
-	calEl.appendChild(el);
+	return el;
+}
+
+data.forEach(gp => {
+	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
+
+	const el = gpTemplate.cloneNode(true);
+	const dateConfig = {
+		month: "short", day: "numeric"
+	}
+	const startDate = gp.sessions[0].start;
+	const endDate = gp.sessions[gp.sessions.length - 1].start;
+
+	if(endDate - new Date() > 0) {
+		el.querySelector('h1').textContent = gp.title;
+		el.querySelector('h2').textContent = gp.subtitle;
+		el.querySelector('div').textContent = `${startDate.toLocaleString(undefined, dateConfig)} - ${endDate.toLocaleString(undefined, dateConfig)}`;
+
+		el.querySelector('[data-module="gp-race"]').appendChild(createTimerEl(gp.sessions.pop()));
+		gp.sessions.forEach(session => {
+			el.querySelector('[data-module="gp-sessions"]').appendChild(createTimerEl(session));
+		});
+
+		el.hidden = false;
+
+		calEl.appendChild(el);
+	}
 });
 
 setInterval(() => {
