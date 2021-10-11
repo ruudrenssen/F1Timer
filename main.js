@@ -146,7 +146,7 @@ data.forEach(gp => {
 	if(endDate - new Date() > 0) {
 		el.querySelector('h1').textContent = gp.title;
 		el.querySelector('h2').textContent = gp.subtitle;
-		el.querySelector('div').textContent = `${startDate.toLocaleString(undefined, dateConfig)} - ${endDate.toLocaleString(undefined, dateConfig)}`;
+		el.querySelector('time').textContent = `${startDate.toLocaleString(undefined, dateConfig)} - ${endDate.toLocaleString(undefined, dateConfig)}`;
 
 		el.querySelector('[data-module="gp-race"]').appendChild(createTimerEl(gp.sessions.pop()));
 		gp.sessions.forEach(session => {
