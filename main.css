@@ -39,9 +39,9 @@ main {
 }
 
 header {
-	margin: 0 1rem;
-	padding: 1rem 0;
-	font-size: 1.62em;
+	margin: 0 1.62rem;
+	padding: 1.62em 0;
+	font-size: 1em;
 }
 
 h1, h2, h3 {
@@ -73,22 +73,24 @@ article h3 {
 
 .sessions {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 1.62em;
+	flex-wrap: wrap-reverse;
+	justify-content: space-around;
+	gap: 1em;
 	font-size: 1em;
-}
-
-.session:last-child {
-	width: 100%;
+	padding: 1.62em 0;
 }
 
 .race {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 1em 0;
 	font-size: 1.62em;
+}
+
+.race .session {
+	padding: .62em 0;
+	border-top: 3px solid var(--purple);
+	border-bottom: 3px solid var(--purple);
 }
 
 .timer {
@@ -112,6 +114,12 @@ article h3 {
 @media (orientation: portrait) {
 	.sessions {
 		flex-direction: column;
+	}
+}
+
+@media (min-width: 32rem) {
+	body {
+		font-size: 1.25rem
 	}
 }
 
