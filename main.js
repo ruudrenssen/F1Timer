@@ -1,7 +1,6 @@
 const data = [
 	{
 		title: 'Turkey',
-		subtitle: 'Formula 1 Rolex Turkey Grand Prix 2021',
 		sessions: [
 			{
 				name: 'Practice 1',
@@ -20,14 +19,13 @@ const data = [
 				start: new Date(1633780800000)
 			},
 			{
-				name: 'Race',
+				name: 'Formula 1 Rolex Turkey Grand Prix 2021',
 				start: new Date(1633867200000)
 			}
 		]
 	},
 	{
 		title: 'United States',
-		subtitle: 'Formula 1 Aramco United States Grand Prix 2021',
 		sessions: [
 			{
 				name: 'Practice 1',
@@ -46,14 +44,13 @@ const data = [
 				start: new Date(1635022800000)
 			},
 			{
-				name: 'Race',
+				name: 'Formula 1 Aramco United States Grand Prix 2021',
 				start: new Date(1635102000000)
 			}
 		]
 	},
 	{
 		title: 'Mexico',
-		subtitle: 'Formula 1 Gran Premio La Ciudad De México 2021',
 		sessions: [
 			{
 				name: 'Practice 1',
@@ -72,7 +69,7 @@ const data = [
 				start: new Date(1636228800000)
 			},
 			{
-				name: 'Race',
+				name: 'Formula 1 Gran Premio La Ciudad De México 2021',
 				start: new Date(1636311600000)
 			}
 		]
@@ -145,7 +142,6 @@ data.forEach(gp => {
 
 	if(endDate - new Date() > 0) {
 		el.querySelector('h1').textContent = gp.title;
-		el.querySelector('h2').textContent = gp.subtitle;
 		el.querySelector('time').textContent = `${startDate.toLocaleString(undefined, dateConfig)} - ${endDate.toLocaleString(undefined, dateConfig)}`;
 
 		el.querySelector('[data-module="gp-race"]').appendChild(createTimerEl(gp.sessions.pop()));

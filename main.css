@@ -28,8 +28,8 @@ body {
 	background-image: url(./logo.svg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: center center;
-	background-size: cover;
+	background-position: center top;
+	background-size: 80vh;
 }
 
 main {
@@ -41,15 +41,16 @@ main {
 header {
 	margin: 0 1.62rem;
 	padding: 1.62em 0;
-	font-size: 1em;
+	font-size: 1.62em;
 }
 
 h1, h2, h3 {
 	text-transform: uppercase;
+	line-height: 1.38;
 }
 
 h1 {
-	font-size: 1.62em;
+	font-size: 1em;
 }
 
 h2, time {
@@ -82,15 +83,26 @@ article h3 {
 
 .race {
 	display: flex;
+	flex-flow: column nowrap;
 	align-items: center;
 	justify-content: center;
 	font-size: 1.62em;
 }
 
+.race::after,
+.race::before {
+	content: '';
+	width: 62%;
+	height: 3px;
+	background: linear-gradient(90deg, #bb00b5 0%, #bb00b500 40%, #bb00b500 60%, #bb00b5 100%);
+}
+
 .race .session {
-	padding: .62em 0;
-	border-top: 3px solid var(--purple);
-	border-bottom: 3px solid var(--purple);
+	padding: .38em 0;
+}
+
+.race h3 {
+	font-size: 0.62em;
 }
 
 .timer {
@@ -126,5 +138,9 @@ article h3 {
 @media (min-width: 48rem) {
 	body {
 		font-size: 1.5rem
+	}
+
+	.race h3 {
+		letter-spacing: 0.0625em;
 	}
 }
