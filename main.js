@@ -133,12 +133,12 @@ const createTimerEl = function (session) {
 data.forEach(gp => {
 	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
 
-	const el = gpTemplate.cloneNode(true);
 	const dateConfig = {
 		month: "short", day: "numeric"
 	}
 	const startDate = gp.sessions[0].start;
 	const endDate = gp.sessions[gp.sessions.length - 1].start;
+	const el = gpTemplate.cloneNode(true);
 
 	if(endDate - new Date() > 0) {
 		el.querySelector('h1').textContent = gp.title;

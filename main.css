@@ -78,7 +78,7 @@ article h3 {
 	justify-content: space-around;
 	gap: 1em;
 	font-size: 1em;
-	padding: 1.62em 0;
+	padding: 1.62em;
 }
 
 .race {
@@ -109,7 +109,7 @@ article h3 {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	gap: .125em;
+	gap: .0625em;
 	font-size: 1.62em;
 }
 
@@ -123,12 +123,6 @@ article h3 {
 	font-size: .3844em;
 }
 
-@media (orientation: portrait) {
-	.sessions {
-		flex-direction: column;
-	}
-}
-
 @media (min-width: 32rem) {
 	body {
 		font-size: 1.25rem
@@ -138,9 +132,5 @@ article h3 {
 @media (min-width: 48rem) {
 	body {
 		font-size: 1.5rem
-	}
-
-	.race h3 {
-		letter-spacing: 0.0625em;
 	}
 }
