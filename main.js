@@ -130,7 +130,7 @@ const createTimerEl = function (session) {
 	return el;
 }
 
-data.forEach(gp => {
+const gpEl = data.map(gp => {
 	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
 
 	const dateConfig = {
@@ -140,19 +140,25 @@ data.forEach(gp => {
 	const endDate = gp.sessions[gp.sessions.length - 1].start;
 	const el = gpTemplate.cloneNode(true);
 
-	if(endDate - new Date() > 0) {
-		el.querySelector('h1').textContent = gp.title;
-		el.querySelector('time').textContent = `${startDate.toLocaleString(undefined, dateConfig)} - ${endDate.toLocaleString(undefined, dateConfig)}`;
+	el.dataset.start = startDate;
+	el.dataset.end = endDate;
+	el.querySelector('h1').textContent = gp.title;
+	el.querySelector('time').textContent = `${startDate.toLocaleString(undefined, dateConfig)} - ${endDate.toLocaleString(undefined, dateConfig)}`;
+	el.querySelector('[data-module="gp-race"]').appendChild(createTimerEl(gp.sessions.pop()));
 
-		el.querySelector('[data-module="gp-race"]').appendChild(createTimerEl(gp.sessions.pop()));
-		gp.sessions.forEach(session => {
-			el.querySelector('[data-module="gp-sessions"]').appendChild(createTimerEl(session));
-		});
+	gp.sessions.forEach(session => {
+		el.querySelector('[data-module="gp-sessions"]').appendChild(createTimerEl(session));
+	});
 
-		el.hidden = false;
-
-		calEl.appendChild(el);
+	return(el);
+}).filter(el => {
+	if(new Date(el.dataset.end) > new Date()) {
+		return el;
 	}
+});
+
+gpEl.forEach(el => {
+	calEl.appendChild(el);
 });
 
 setInterval(() => {
