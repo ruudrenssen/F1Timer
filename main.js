@@ -73,6 +73,31 @@ const data = [
 				start: new Date(1636311600000)
 			}
 		]
+	},
+	{
+		title: 'Brazil',
+		sessions: [
+			{
+				name: 'Practice 1',
+				start: new Date(1636731000000)
+			},
+			{
+				name: 'Qualifying',
+				start: new Date(1636743600000)
+			},
+			{
+				name: 'Practice 2',
+				start: new Date(1636815600000)
+			},
+			{
+				name: 'Sprint Qualifying',
+				start: new Date(1636831800000)
+			},
+			{
+				name: 'Formula 1 Heineken Grande Prêmio de São Paulo de 2021',
+				start: new Date(1636909200000)
+			}
+		]
 	}
 ]
 
@@ -87,6 +112,7 @@ const decimals = [1, 2, 2, 2, 3]
 const calEl = document.querySelector('[data-module="gp-calendar"]');
 const gpTemplate = document.querySelector('[data-module="gp-item"]').cloneNode(true);
 const sessionTemplate = document.querySelector('[data-module="gp-session"]').cloneNode(true);
+const gears = document.querySelectorAll('animateTransform');
 
 document.querySelector('[data-module="gp-session"]').remove();
 document.querySelector('[data-module="gp-item"]').remove();
@@ -130,6 +156,15 @@ const createTimerEl = function (session) {
 	return el;
 }
 
+const hideGp = function (el) {
+	el.classList.add('hidden');
+}
+
+const showGp = function (el) {
+	calEl.querySelectorAll('.gp').forEach(el => hideGp(el));
+	el.classList.remove('hidden');
+};
+
 const gpEl = data.map(gp => {
 	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
 
@@ -156,17 +191,28 @@ const gpEl = data.map(gp => {
 		return el;
 	}
 });
+gpEl.forEach(el => calEl.appendChild(el));
 
+// Navigation
 let current = 0;
-calEl.appendChild(gpEl[current]);
-
+let animating = false;
 document.onwheel = function(e) {
-	if(e.deltaY > 0) {
-		console.log('forward');
-	} else {
-		console.log('backward');
+	if(!animating) {
+		animating = true;
+		e.deltaY > 0 ? current++ : current--;
+		if(current < 0) { current = gpEl.length - 1 };
+		if(current > gpEl.length - 1) { current = 0 };
+
+		setTimeout(()=> {
+			animating = false;
+		}, 500);
 	}
+
+	showGp(gpEl[current]);
 };
+
+// Show first GP in calendar
+showGp(gpEl[current]);
 
 setInterval(() => {
 	document.querySelectorAll('[data-module="gp-session"]').forEach(el => {

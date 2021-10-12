@@ -17,25 +17,17 @@
 }
 
 html, body, main {
+	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 
 body {
 	text-align: center;
 	font-size: 1rem;
 	background-color: var(--yellow);
-	background-image: url(./logo.svg);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center top;
-	background-size: 80vh;
-}
-
-main {
-	overflow: auto;
-	scroll-snap-type: y proximity;
-	scroll-behavior: smooth;
+	overflow: hidden;
 }
 
 header {
@@ -44,9 +36,13 @@ header {
 	font-size: 1.62em;
 }
 
+svg {
+	width: 100%;
+	height: 100%;
+}
+
 h1, h2, h3 {
 	text-transform: uppercase;
-	line-height: 1.38;
 }
 
 h1 {
@@ -57,19 +53,43 @@ h2, time {
 	font-size: .62em;
 }
 
-article {
-	text-align: center;
+/* Components */
+.animation,
+.gp,
+.background {
+	position: absolute;
+	top: 0;
+	right:0;
+	bottom: 0;
+	left: 0;
 }
 
-article h3 {
-	display: inline-block;
+.stripe {
+	stroke-width: 50;
+	stroke: var(--purple);
+	stroke-dasharray: 150 700;
+	animation: stripe 1.2s linear;
+	opacity: 0;
+}
+
+.animation {
+	margin-top: 5vw;
+	transform: perspective(400px) rotateX(80deg) scale(400%);
+	overflow: hidden;
+	z-index: 0;
 }
 
 .gp {
 	display: grid;
-	height: 100%;
 	align-items: center;
 	grid-template-rows: min-content auto min-content;
+	transition: opacity .32s ease .18s;
+}
+
+.chainbear {
+	transform: scale(80%);
+	transform-origin: center;
+	z-index: -1;
 }
 
 .sessions {
@@ -81,21 +101,8 @@ article h3 {
 	padding: 1.62em;
 }
 
-.race {
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: center;
-	justify-content: center;
-	font-size: 1.62em;
-	padding: 0 0 1.62em 0;
-}
-
-.race .session {
-	padding: .38em 0;
-}
-
-.race h3 {
-	font-size: 0.62em;
+.background {
+	position: absolute;
 }
 
 .timer {
@@ -113,8 +120,28 @@ article h3 {
 }
 
 .timer-smallprint {
+	display: none;
 	font-size: .3844em;
 }
+
+/* Modifications */
+.hidden {
+	opacity: 0;
+	transition: opacity .5s;
+}
+
+.race .session {
+	font-size: 1.62em;
+	padding: 0 0 1.62em 0;
+	display: flex;
+	flex-flow: column nowrap;
+	padding: .38em 0;
+}
+
+.race .timer-smallprint {
+	display: block;
+}
+
 
 @media (min-width: 32rem) {
 	body {
@@ -125,5 +152,26 @@ article h3 {
 @media (min-width: 48rem) {
 	body {
 		font-size: 1.5rem
+	}
+}
+
+@keyframes stripe {
+	0% {
+		stroke-dashoffset: 0;
+		opacity: 0;
+	}
+
+	1% {
+		opacity: 1;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		stroke-dashoffset: -2400;
+		stroke-dasharray: 1000 5000;
+		opacity: 0;
 	}
 }
