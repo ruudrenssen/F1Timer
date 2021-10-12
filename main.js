@@ -157,9 +157,16 @@ const gpEl = data.map(gp => {
 	}
 });
 
-gpEl.forEach(el => {
-	calEl.appendChild(el);
-});
+let current = 0;
+calEl.appendChild(gpEl[current]);
+
+document.onwheel = function(e) {
+	if(e.deltaY > 0) {
+		console.log('forward');
+	} else {
+		console.log('backward');
+	}
+};
 
 setInterval(() => {
 	document.querySelectorAll('[data-module="gp-session"]').forEach(el => {

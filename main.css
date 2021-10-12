@@ -87,6 +87,7 @@ article h3 {
 	align-items: center;
 	justify-content: center;
 	font-size: 1.62em;
+	padding: 0 0 1.62em 0;
 }
 
 .race .session {
