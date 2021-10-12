@@ -205,9 +205,15 @@ document.onwheel = function(e) {
 		if(current > gpEl.length - 1) { current = 0 };
 
 		stripes.classList.add('animation');
+		document.querySelectorAll('animateTransform').forEach(el => {
+			el.setAttribute('dur', '0.6s');
+		})
 
 		setTimeout(()=> {
 			animating = false;
+			document.querySelectorAll('animateTransform').forEach(el => {
+				el.setAttribute('dur', '6s');
+			})
 			stripes.classList.remove('animation');
 		}, 500);
 	}

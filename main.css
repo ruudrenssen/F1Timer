@@ -74,7 +74,7 @@ h2, time {
 
 .animation {
 	margin-top: 5vw;
-	transform: perspective(400px) rotateX(80deg) scale(400%);
+	transform: perspective(400px) rotateX(67deg) scale(400%);
 	overflow: hidden;
 	z-index: 0;
 }
