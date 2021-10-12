@@ -113,6 +113,7 @@ const calEl = document.querySelector('[data-module="gp-calendar"]');
 const gpTemplate = document.querySelector('[data-module="gp-item"]').cloneNode(true);
 const sessionTemplate = document.querySelector('[data-module="gp-session"]').cloneNode(true);
 const gears = document.querySelectorAll('animateTransform');
+const stripes = document.querySelector('.stripes');
 
 document.querySelector('[data-module="gp-session"]').remove();
 document.querySelector('[data-module="gp-item"]').remove();
@@ -203,8 +204,11 @@ document.onwheel = function(e) {
 		if(current < 0) { current = gpEl.length - 1 };
 		if(current > gpEl.length - 1) { current = 0 };
 
+		stripes.classList.add('animation');
+
 		setTimeout(()=> {
 			animating = false;
+			stripes.classList.remove('animation');
 		}, 500);
 	}
 
@@ -213,6 +217,7 @@ document.onwheel = function(e) {
 
 // Show first GP in calendar
 showGp(gpEl[current]);
+stripes.classList.remove('animation');
 
 setInterval(() => {
 	document.querySelectorAll('[data-module="gp-session"]').forEach(el => {
