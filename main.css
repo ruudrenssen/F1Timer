@@ -65,7 +65,7 @@ h2, time {
 }
 
 .animation .stripe {
-	stroke-width: 50;
+	stroke-width: 35;
 	stroke: var(--purple);
 	stroke-dasharray: 150 750;
 	animation: stripe 1.8s linear;
