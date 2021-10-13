@@ -177,7 +177,7 @@ const browse = function (direction) {
 		document.querySelectorAll('animateTransform').forEach(el => {
 			let obj = {prop: 6};
 			gsap.from(obj, {
-				duration: 1.25,
+				duration: .75,
 				prop: 12,
 				ease: 'circ',
 				//onUpdate fires each time the tween updates; we'll explain callbacks later.
