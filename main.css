@@ -69,6 +69,11 @@ h2, time {
 	z-index: -1;
 }
 
+.chainbear {
+	transform: scale(62%);
+	transform-origin: center;
+}
+
 .animation .stripe {
 	stroke-width: 35;
 	stroke: var(--purple);
