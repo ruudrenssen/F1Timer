@@ -94,12 +94,6 @@ h2, time {
 	margin: 0 1em;
 }
 
-.chainbear {
-	transform: scale(80%);
-	transform-origin: center;
-	z-index: -1;
-}
-
 .stripes {
 	filter: blur(.125rem);
 }
