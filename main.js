@@ -180,7 +180,6 @@ const browse = function (direction) {
 				duration: .6,
 				prop: 12,
 				ease: 'circ',
-				//onUpdate fires each time the tween updates; we'll explain callbacks later.
 				onUpdate: function() {
 					el.setAttribute('dur', `${obj.prop}s`);
 				}
