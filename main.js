@@ -182,7 +182,6 @@ const browse = function (direction) {
 				ease: 'circ',
 				//onUpdate fires each time the tween updates; we'll explain callbacks later.
 				onUpdate: function() {
-					console.log(obj.prop); //logs the value on each update.
 					el.setAttribute('dur', `${obj.prop}s`);
 				}
 			});
@@ -190,9 +189,6 @@ const browse = function (direction) {
 
 		setTimeout(()=> {
 			animating = false;
-			document.querySelectorAll('animateTransform').forEach(el => {
-				// el.setAttribute('dur', '6s');
-			})
 			stripes.classList.remove('animation');
 		}, 500);
 	}
