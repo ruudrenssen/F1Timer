@@ -241,6 +241,10 @@ document.ontouchend = function (e) {
 	startY - endY < 0 ? browse(-1) : browse(1);
 }
 
+document.onclick = function (e) {
+	browse(1);
+}
+
 // Show first GP in calendar
 showGp(gpEl[current]);
 stripes.classList.add('animation');
