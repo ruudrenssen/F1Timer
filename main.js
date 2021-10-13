@@ -190,6 +190,7 @@ const browse = function (direction) {
 	showGp(gpEl[current]);
 }
 
+// Create sorted set of GP's in the future
 const gpEl = data.map(gp => {
 	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
 
