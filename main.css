@@ -72,14 +72,14 @@ h2, time {
 .animation .stripe {
 	stroke-width: 35;
 	stroke: var(--purple);
-	stroke-dasharray: 150 750;
+	stroke-dasharray: 50 1850;
 	animation: stripe 1.8s linear;
 	stroke-opacity: 0;
 }
 
 .animation {
 	margin-top: 5vw;
-	transform: perspective(400px) rotateX(67deg) scale(400%);
+	transform: perspective(325px) rotateX(67deg) scale(400%);
 	overflow: hidden;
 }
 

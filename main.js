@@ -223,7 +223,10 @@ document.onwheel = function(e) {
 
 // Show first GP in calendar
 showGp(gpEl[current]);
-stripes.classList.remove('animation');
+stripes.classList.add('animation');
+setTimeout(()=> {
+	stripes.classList.remove('animation');
+}, 500);
 
 setInterval(() => {
 	document.querySelectorAll('[data-module="gp-session"]').forEach(el => {
