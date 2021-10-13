@@ -90,6 +90,10 @@ h2, time {
 	transition: opacity .32s ease .18s;
 }
 
+.race {
+	margin: 0 .125em;
+}
+
 .chainbear {
 	transform: scale(80%);
 	transform-origin: center;
