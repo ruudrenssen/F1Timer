@@ -67,7 +67,7 @@ h2, time {
 .animation .stripe {
 	stroke-width: 50;
 	stroke: var(--purple);
-	stroke-dasharray: 150 500;
+	stroke-dasharray: 150 750;
 	animation: stripe 1.8s linear;
 	stroke-opacity: 0;
 }
@@ -163,6 +163,7 @@ h2, time {
 
 	18% {
 		stroke-opacity: 1;
+		stroke-dasharray: 500 2000;
 	}
 
 	62% {
@@ -170,12 +171,12 @@ h2, time {
 	}
 
 	80% {
-		stroke-dasharray: 1000 1000;
+		stroke-dasharray: 1000 10000;
 	}
 
 	100% {
-		stroke-dashoffset: -3000;
-		stroke-dasharray: 0 3000;
+		stroke-dashoffset: -10000;
+		stroke-dasharray: 0 10000;
 		stroke-opacity: 0;
 	}
 }
