@@ -219,22 +219,24 @@ const gpEl = data.map(gp => {
 });
 gpEl.forEach(el => calEl.appendChild(el));
 
-// Desktop navigation
+// Navigation
 let current = 0;
 let animating = false;
+let startY = 0;
+let endY = 0;
+
 document.onwheel = function(e) {
 	browse(e.deltaY);
 };
 
-// Mobile Navigation
-let startY = 0;
-let endY = 0;
 document.ontouchstart = function (e) {
 	startY = e.touches[0].screenY;
 }
+
 document.ontouchmove = function (e) {
 	endY = e.touches[0].screenY;
 }
+
 document.ontouchend = function (e) {
 	startY - endY < 0 ? browse(-1) : browse(1);
 }
@@ -246,6 +248,7 @@ setTimeout(()=> {
 	stripes.classList.remove('animation');
 }, 500);
 
+// Set interval for update counter on screen
 setInterval(() => {
 	document.querySelectorAll('[data-module="gp-session"]').forEach(el => {
 		updateCountdown(el);
