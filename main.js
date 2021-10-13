@@ -175,13 +175,23 @@ const browse = function (direction) {
 
 		stripes.classList.add('animation');
 		document.querySelectorAll('animateTransform').forEach(el => {
-			el.setAttribute('dur', '0.6s');
+			let obj = {prop: 6};
+			gsap.from(obj, {
+				duration: 1.25,
+				prop: 12,
+				ease: 'circ',
+				//onUpdate fires each time the tween updates; we'll explain callbacks later.
+				onUpdate: function() {
+					console.log(obj.prop); //logs the value on each update.
+					el.setAttribute('dur', `${obj.prop}s`);
+				}
+			});
 		})
 
 		setTimeout(()=> {
 			animating = false;
 			document.querySelectorAll('animateTransform').forEach(el => {
-				el.setAttribute('dur', '6s');
+				// el.setAttribute('dur', '6s');
 			})
 			stripes.classList.remove('animation');
 		}, 500);
