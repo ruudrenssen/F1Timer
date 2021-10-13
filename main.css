@@ -96,6 +96,10 @@ h2, time {
 	z-index: -1;
 }
 
+.stripes {
+	filter: blur(.125rem);
+}
+
 .sessions {
 	display: flex;
 	flex-wrap: wrap-reverse;
@@ -163,6 +167,7 @@ h2, time {
 	0% {
 		stroke-dashoffset: 0;
 		stroke-opacity: 0;
+
 	}
 
 	18% {
