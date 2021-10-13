@@ -177,7 +177,7 @@ const browse = function (direction) {
 		document.querySelectorAll('animateTransform').forEach(el => {
 			let obj = {prop: 6};
 			gsap.from(obj, {
-				duration: .75,
+				duration: .6,
 				prop: 12,
 				ease: 'circ',
 				//onUpdate fires each time the tween updates; we'll explain callbacks later.
@@ -190,7 +190,7 @@ const browse = function (direction) {
 		setTimeout(()=> {
 			animating = false;
 			stripes.classList.remove('animation');
-		}, 500);
+		}, 600);
 	}
 
 	showGp(gpEl[current]);
