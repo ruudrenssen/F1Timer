@@ -70,7 +70,7 @@ h2, time {
 }
 
 .chainbear {
-	transform: scale(62%);
+	transform: scale(75%);
 	transform-origin: center;
 }
 
@@ -153,6 +153,11 @@ h2, time {
 	display: block;
 }
 
+@media (orientation: portrait) {
+	.chainbear {
+		transform: scale(90%);
+	}
+}
 
 @media (min-width: 32rem) {
 	body {
