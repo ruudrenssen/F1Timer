@@ -175,21 +175,16 @@ const browse = function (direction) {
 
 		stripes.classList.add('animation');
 		document.querySelectorAll('animateTransform').forEach(el => {
-			let obj = {prop: 6};
-			gsap.from(obj, {
-				duration: .6,
-				prop: 12,
-				ease: 'circ',
-				onUpdate: function() {
-					el.setAttribute('dur', `${obj.prop}s`);
-				}
-			});
+			el.setAttribute('dur', '0.6s');
 		})
 
 		setTimeout(()=> {
 			animating = false;
+			document.querySelectorAll('animateTransform').forEach(el => {
+				el.setAttribute('dur', '6s');
+			})
 			stripes.classList.remove('animation');
-		}, 600);
+		}, 500);
 	}
 
 	showGp(gpEl[current]);
