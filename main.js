@@ -166,6 +166,30 @@ const showGp = function (el) {
 	el.classList.remove('hidden');
 };
 
+const browse = function (direction) {
+	if(!animating) {
+		animating = true;
+		direction > 0 ? current++ : current--;
+		if(current < 0) { current = gpEl.length - 1 };
+		if(current > gpEl.length - 1) { current = 0 };
+
+		stripes.classList.add('animation');
+		document.querySelectorAll('animateTransform').forEach(el => {
+			el.setAttribute('dur', '0.6s');
+		})
+
+		setTimeout(()=> {
+			animating = false;
+			document.querySelectorAll('animateTransform').forEach(el => {
+				el.setAttribute('dur', '6s');
+			})
+			stripes.classList.remove('animation');
+		}, 500);
+	}
+
+	showGp(gpEl[current]);
+}
+
 const gpEl = data.map(gp => {
 	gp.sessions.sort((a,b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
 
@@ -194,32 +218,25 @@ const gpEl = data.map(gp => {
 });
 gpEl.forEach(el => calEl.appendChild(el));
 
-// Navigation
+// Desktop navigation
 let current = 0;
 let animating = false;
 document.onwheel = function(e) {
-	if(!animating) {
-		animating = true;
-		e.deltaY > 0 ? current++ : current--;
-		if(current < 0) { current = gpEl.length - 1 };
-		if(current > gpEl.length - 1) { current = 0 };
-
-		stripes.classList.add('animation');
-		document.querySelectorAll('animateTransform').forEach(el => {
-			el.setAttribute('dur', '0.6s');
-		})
-
-		setTimeout(()=> {
-			animating = false;
-			document.querySelectorAll('animateTransform').forEach(el => {
-				el.setAttribute('dur', '6s');
-			})
-			stripes.classList.remove('animation');
-		}, 500);
-	}
-
-	showGp(gpEl[current]);
+	browse(e.deltaY);
 };
+
+// Mobile Navigation
+let startY = 0;
+let endY = 0;
+document.ontouchstart = function (e) {
+	startY = e.touches[0].screenY;
+}
+document.ontouchmove = function (e) {
+	endY = e.touches[0].screenY;
+}
+document.ontouchend = function (e) {
+	startY - endY < 0 ? browse(-1) : browse(1);
+}
 
 // Show first GP in calendar
 showGp(gpEl[current]);
