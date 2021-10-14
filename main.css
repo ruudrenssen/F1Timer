@@ -153,6 +153,12 @@ h2, time {
 	display: block;
 }
 
+@supports not (perspective: 325px) {
+	.animation {
+		display: none;
+	}
+}
+
 @media (orientation: portrait) {
 	.chainbear {
 		transform: scale(90%);
